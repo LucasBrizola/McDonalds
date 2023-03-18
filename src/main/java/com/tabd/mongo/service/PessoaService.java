@@ -36,8 +36,9 @@ public class PessoaService {
         return this.pessoaRepository.findAll();
     }
 
-    public void update(Integer id){
-        Optional<Pessoa> pessoa = this.pessoaRepository.findById(id);
-        //this.pessoaRepository.save(pessoa);
+    public void update(Integer id, Pessoa pessoaNova){
+        Optional<Pessoa> pessoaAntiga = this.pessoaRepository.findById(id);
+        pessoaNova.setId(pessoaAntiga.get().getId());
+        this.pessoaRepository.save(pessoaNova);
     }
 }

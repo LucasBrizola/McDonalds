@@ -30,7 +30,7 @@ public class PessoaController {
         return new ResponseEntity<Optional<Pessoa>>(pessoa,HttpStatus.OK);
     }
 
-    @GetMapping(value="/pessoa/{name}")
+    @GetMapping(value="/pessoa/nome/{name}")
     public ResponseEntity<?> findByName(@PathVariable("name") String name) {
         Pessoa pessoa = this.pessoaService.findByName(name);
         return new ResponseEntity<Pessoa>(pessoa,HttpStatus.OK);
@@ -39,6 +39,12 @@ public class PessoaController {
     @PostMapping(value="/pessoa")
     public ResponseEntity<?> salvar(@RequestBody Pessoa pessoa) {
         this.pessoaService.save(pessoa);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping(value="/pessoa/{id}")
+    public ResponseEntity<?> editar(@PathVariable("id") Integer id, @RequestBody Pessoa pessoa) {
+        this.pessoaService.update(id, pessoa);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
