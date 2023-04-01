@@ -45,7 +45,7 @@ public class McDonaldsController {
     @DeleteMapping(value="/cardapio/{n_Pedido}")
     public ResponseEntity<?> deletar(@PathVariable("n_Pedido") Integer n_Pedido) {
         this.mcDonaldsService.delete(n_Pedido);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<String>("pedido " + n_Pedido + " excluido", HttpStatus.OK);
     }
 
 }
