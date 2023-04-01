@@ -26,14 +26,14 @@ public class McDonaldsController {
 
     @GetMapping(value="/cardapio/{n_Pedido}")
     public ResponseEntity<?> findById(@PathVariable("n_Pedido") Integer n_Pedido) {
-        Optional<McDonalds> mcDonalds = this.mcDonaldsService.findById(n_Pedido);
+        Optional<McDonalds> mcDonalds = Optional.ofNullable(this.mcDonaldsService.findById(n_Pedido));
         return new ResponseEntity<Optional<McDonalds>>(mcDonalds,HttpStatus.OK);
     }
 
     @PostMapping(value="/cardapio")
     public ResponseEntity<?> salvar(@RequestBody McDonalds mcDonalds) {
         this.mcDonaldsService.save(mcDonalds);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<McDonalds>(mcDonalds,HttpStatus.OK);
     }
 
     @PutMapping(value="/cardapio/{n_Pedido}")
