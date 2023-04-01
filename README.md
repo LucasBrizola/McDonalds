@@ -1,19 +1,19 @@
-# mongo
+# McDonalds
 
-API restful para a aula de TABD na fundatec, com conexão no mongoDB Atlas
+API restful para a prova final de TABD na fundatec, com conexão no mongoDB Atlas
 
 Exemplo de body:
 {
-  "id":1,
-  "nome":"lucas",
-  "idade":"30"
+    "n_Pedido":"1",
+    "item":"batata pequena",
+    "qtd":1,
+    "valor": 18.50
 }
 
 endpoints:
 
-GET localhost:8080/mongo/pessoas - listar todas as pessoas
-GET localhost:8080/mongo/pessoa/{id} - listar pessoa por id
-GET localhost:8080/mongo/pessoa/nome/{nome} - listar pessoa por nome
-POST localhost:8080/mongo/pessoa - salvar pessoa
-PUT localhost:8080/pessoa/{id} - editar pessoa
-DELETE localhost:8080/pessoa/{id} - deletar pessoa
+GET http://localhost:8080/mcdonalds/cardapio - listar todos pedidos
+GET http://localhost:8080/mcdonalds/cardapio/{n_Pedido} - listar pedido por n_Pedido
+POST http://localhost:8080/mcdonalds/cardapio - salvar pedido
+PUT http://localhost:8080/mcdonalds/cardapio/{n_Pedido} - editar pedido
+DELETE http://localhost:8080/mcdonalds/cardapio/{n_Pedido} - deletar pedido
